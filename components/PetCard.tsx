@@ -1,12 +1,15 @@
-import Image from "next/image"
-import DogImg from "../../petcare/public/dog.jpg"
+import Image, { StaticImageData } from "next/image"
 
-const PetCard = () => {
+type PetCardProps = {
+    image: StaticImageData
+}
+
+const PetCard = ({ image } : PetCardProps) => {
   return (
-    <article>
-        <Image className="w-[260px]" src={DogImg} alt="Imagem cachorro"/>
-        <div>
-            <p>Cachorro</p>
+    <article className="bg-yellow-400 rounded-md">
+        <Image className="w-[260px] h-[220px] object-cover rounded-t-md" src={image} alt="Imagem cachorro"/>
+        <div className="p-2">
+            <p className="font-bold">Cachorro</p>
         </div>
     </article>
   )
