@@ -1,6 +1,7 @@
 import DogImg from "../public/dog.jpg";
 import Dog2Img from "../public/dog2.jpg";
 import Dog3Img from "../public/dog3.jpg";
+import Dog4Img from "../public/dog4.jpg";
 import PetCard from "@/components/PetCard";
 import Link from "next/link";
 import React from "react";
@@ -15,7 +16,7 @@ const Home = () => {
             Pets disponíveis
           </h4>
           <Link
-            href="/register"
+            href="/add"
             className="bg-sky-700 text-white font-semibold border-2 border-sky-700 flex items-center gap-1 py-2 px-3 rounded-md hover:bg-white hover:text-sky-700 duration-300"
           >
             Adicionar Pet <IoMdAdd />
@@ -25,6 +26,7 @@ const Home = () => {
           <PetCard image={DogImg} name="Golden" />
           <PetCard image={Dog2Img} name="Pug" />
           <PetCard image={Dog3Img} name="Rottweiler" />
+          <PetCard image={Dog4Img} name="Pitbull" />
         </div>
       </section>
     </main>

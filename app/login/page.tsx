@@ -8,15 +8,6 @@ const Register = () => {
       </h2>
       <form className="bg-yellow-400 w-2/5 p-4 mt-6 flex flex-col gap-5 rounded-md">
         <div className="flex flex-col">
-          <label className="font-semibold" htmlFor="name">
-            Nome
-          </label>
-          <input
-            className="bg-white rounded-md py-1 px-2 outline-none"
-            type="text"
-          />
-        </div>
-        <div className="flex flex-col">
           <label className="font-semibold" htmlFor="email">
             Email
           </label>

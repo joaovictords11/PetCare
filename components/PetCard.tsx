@@ -15,6 +15,8 @@ const PetCard = ({ image, name }: PetCardProps) => {
         className="w-[260px] h-[220px] object-cover rounded-t-md"
         src={image}
         alt="Imagem cachorro"
+        quality={100}
+        priority
       />
       <div className="flex items-center justify-between py-2 px-4">
         <p className="text-2xl text-sky-700 font-bold">{name}</p>
