@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
 import FormImage from "../../public/formLogin.jpg";
 
 const Register = () => {
@@ -40,6 +40,16 @@ const Register = () => {
             className="cursor-pointer bg-sky-700 text-white p-1.5 rounded-md font-semibold hover:opacity-85 duration-300"
           />
         </form>
+        <p className="text-black mt-3 font-semibold">
+          Não tem cadastro?
+          <Link
+            href="/register"
+            className="text-sky-700 hover:opacity-80 duration-300"
+          >
+            {" "}
+            Criar conta
+          </Link>
+        </p>
       </div>
     </section>
   );
