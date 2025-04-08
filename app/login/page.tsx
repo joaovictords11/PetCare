@@ -1,8 +1,36 @@
+"use client";
+
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
+import { FormEvent, useState } from "react";
+import { toast } from "react-toastify";
 import FormImage from "../../public/formLogin.jpg";
 
 const Register = () => {
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const data = {
+      email,
+      senha,
+    };
+
+    try {
+      await axios.post("http://localhost:8080/clientes/login", data);
+      toast.success("Login realizado com sucesso!");
+
+      setEmail("");
+      setSenha("");
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+      toast.error("Erro no login. Tente novamente.");
+    }
+  };
+
   return (
     <section className="flex items-center">
       <Image
@@ -15,7 +43,10 @@ const Register = () => {
         <h2 className="mt-8 text-center text-3xl font-semibold text-sky-700">
           Login
         </h2>
-        <form className="bg-yellow-400 w-2/5 p-4 mt-6 flex flex-col gap-5 rounded-md">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-yellow-400 w-2/5 p-4 mt-6 flex flex-col gap-5 rounded-md"
+        >
           <div className="flex flex-col">
             <label className="font-semibold" htmlFor="email">
               Email
@@ -23,6 +54,9 @@ const Register = () => {
             <input
               className="bg-white rounded-md py-1 px-2 outline-none"
               type="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              placeholder="Digite seu email"
             />
           </div>
           <div className="flex flex-col">
@@ -32,6 +66,9 @@ const Register = () => {
             <input
               className="bg-white rounded-md py-1 px-2 outline-none"
               type="password"
+              onChange={(e) => setSenha(e.target.value)}
+              value={senha}
+              placeholder="Digite sua senha"
             />
           </div>
           <input
